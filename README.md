@@ -1,5 +1,5 @@
 ## Musica
-#### Link to the live website: [Musica](https://devmusica.netlify.app/ "Musica live site")
+#### Link to the live website: [Musica](https://musica-xi.vercel.app/ "Musica live site")
 ___
 
 ### Description 
@@ -11,7 +11,7 @@ ____
 1. React
 2. Git
 3. Github
-4. Netlify
+4. Vercel
 5. React
 6. React-router
 7. TailwindCSS
