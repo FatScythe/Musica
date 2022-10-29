@@ -1,13 +1,184 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar {
+    @apply w-1 h-1;
+
 }
+::-webkit-scrollbar-thumb {
+    @apply bg-dark2 rounded-md;
+}
+.App {
+    @apply bg-dark h-screen relative overflow-y-scroll overflow-x-hidden font-sans;
+}
+nav {
+    @apply p-6 text-gray-400 md:text-light overflow-hidden relative md:col-span-1 md:flex flex-col justify-center items-center;
+}
+nav .active {
+    @apply bg-secondary text-light;
+}
+nav .nav-links {
+    @apply z-10 h-screen md:h-full bg-dark transition-all duration-500 fixed top-0 md:static md:-left-0 w-full md:w-fit flex flex-col;
+}
+nav ul li {
+    @apply flex gap-x-6 ml-10 mb-8 mt-12 md:mt-6 md:gap-x-0 md:ml-0 md:mb-2;
+}
+.active svg path {
+    @apply bg-secondary fill-secondary;
+    fill-opacity: 1;
+}
+nav ul {
+    @apply pl-5 md:px-3 md:py-3 rounded-3xl md:bg-dark3;  
+}
+nav .ul1 {
+    @apply md:mt-4;
+}
+nav .ul2 {
+    @apply -mt-6 md:mt-4;
+}
+nav ul li span {
+    @apply  justify-start md:hidden font-semibold; 
+}
+nav .search input {
+    @apply inline rounded-sm caret-dark2 bg-dark3 focus:outline-0 border-transparent focus:border-2 focus:border-b-dark2 placeholder:text-light placeholder:text-xs placeholder:tracking-wide placeholder:pl-1 transition-all duration-500;
+} 
+header {
+    @apply text-light;
+}
+header .card {
+    @apply px-10 md:col-span-8 flex justify-between bg-[url('./images/Vectormobile.png')] md:bg-[url('./images/Vector.png')] h-60vh md:h-50vh bg-dark2 rounded-3xl bg-no-repeat bg-right-top;
+}
+header .card .card1 {
+    @apply flex flex-col justify-between md:justify-around basis-full md:basis-2/4;
+}
+header .card .title {
+    @apply mt-6 md:mb-0 basis-1/5;
+}
+header .card .likes{
+    @apply text-sm md:text-normal;
+}
+header .card .sub-title {
+    @apply flex justify-between md:items-center gap-x-6;
+}
+header .card .sub-title .hero-txt {
+    @apply w-full text-sm md:text-normal;
+}
+header .card .hero-img {
+    @apply hidden basis-2/4 md:block;
+}
+header .card .hero-img img {
+    @apply  h-full w-full;
+}
+header .card span svg {
+    @apply inline mx-3;
+}
+header .card span img {
+    @apply inline -ml-3 object-cover w-8 md:w-6; 
+}
+header .top-charts {
+    @apply md:col-span-4 cursor-pointer min-w-full snap-start;
+}
+header .top-charts h1, header .new-release h1, header .popular h1  {
+    @apply text-lg mb-2;
+}
+header .top-charts .items {
+    @apply flex gap-4 md:flex-col overflow-x-auto snap-x snap-mandatory;
+}
+header .top-charts .items .card-item{
+    @apply mb-0 md:mb-4 mr-2 md:mr-0 md:overflow-x-hidden;
+    -ms-overflow-style: none;
+    scrollbar-color: transparent;
+    scrollbar-width: none;
+}
+header .new-release {
+    @apply mt-6 min-w-full snap-start mb-10;
+}
+header .popular {
+    @apply mt-6 min-w-full snap-start mb-40;
+}
+ .items {
+    @apply flex gap-4 overflow-x-auto snap-x snap-mandatory;
+ }
+ header .new-release .items .card-img,
+ header .popular .items .card-img {
+    @apply h-40 w-40 md:h-48 md:w-48 rounded-2xl overflow-hidden;
+ }
+ header .new-release .items .card-img img, 
+ header .popular .items .card-img img{
+    @apply object-cover w-full;
+ }
+  
+header .player {
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 1));
+    @apply fixed bottom-0 left-0 right-0 h-15vh md:z-20; 
+}
+header .player input[type=range], button {
+    @apply focus:outline-0;
+    -webkit-appearance: none;
+}
+header .player input::-webkit-slider-runnable-track {
+    @apply h-1 bg-gray-400;
+}
+header .player .track-control input[type = range]::-webkit-slider-thumb  {
+    -webkit-appearance: none;
+    @apply cursor-pointer w-3 h-3 rounded-full bg-secondary -mt-1; 
+}
+header .player .track-volume input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @apply cursor-pointer w-3 h-3 rounded-full bg-secondary -mt-1;
+}
+.playlist header {
+    @apply flex flex-col justify-center md:flex-row md:justify-between items-center gap-3;
+}
+.playlist header .hero-img {
+    @apply basis-full md:basis-2/6;
+}
+.playlist header .hero-img img {
+    @apply w-11/12 md:w-full h-50vh md:h-40vh md:object-contain;
+}
+.playlist header .hero-txt {
+    @apply basis-full md:basis-2/3 mx-3 md:mx-12 self-end;
+}
+.playlist header .hero-txt h1 {
+    @apply text-2xl text-dark2 font-semibold md:text-lg;
+}
+.playlist header .btn{
+    @apply flex items-center justify-evenly gap-0 md:justify-start md:gap-2;
+}
+.collection {
+    @apply flex flex-col;
+}
+.collection nav {
+    @apply flex flex-row gap-x-3 px-6 md:px-0 items-center md:justify-start;
+}
+.collection nav .nav-link {
+    @apply border basis-1/2 md:basis-auto text-center border-gray-500 px-14 py-3 md:px-8 md:py-2 rounded-3xl;
+}
+.collection nav .active {
+    @apply bg-secondary text-black;
+}
+.my-collection {
+    @apply flex flex-col md:flex-row gap-6 md:gap-0;
+}
+.my-collection .collection-card {
+    @apply relative cursor-pointer rounded-xl md:basis-1/5 overflow-hidden mx-8 md:mx-2 h-40vh md:h-full text-light; 
+}
+.my-collection .collection-card img {
+    @apply w-full;
+    max-height: 100%;
+}
+.my-collection .collection-card .overlay {
+    @apply px-4 absolute left-0 right-0 bottom-0;
+}
+.my-collection .collection-card:hover img {
+    @apply md:scale-125 transition-all duration-700;
+}
+.my-collection .collection-card .overlay .play-btn {
+    @apply flex justify-between items-center md:opacity-0 md:h-0;  
+}
+.my-collection .collection-card:hover .overlay .play-btn  {
+    @apply transition-all duration-700 opacity-100 md:h-3/5;
+}
+    
