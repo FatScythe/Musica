@@ -22,7 +22,7 @@ const Navlinks = ({ navIsOpen, setnavIsOpen }) => {
           </svg>
         </div>
         <div className='ul1'>
-          <ul>
+          <ul onClick={() => setnavIsOpen(false)}>
             <NavLink activeClassName='active' to='/home'>
               <li>
                 <svg
@@ -162,7 +162,7 @@ const Navlinks = ({ navIsOpen, setnavIsOpen }) => {
         </div>
 
         <div className='ul2'>
-          <ul>
+          <ul onClick={() => setnavIsOpen(false)}>
             <NavLink activeClassName='active' to='/profile'>
               <li>
                 <svg
