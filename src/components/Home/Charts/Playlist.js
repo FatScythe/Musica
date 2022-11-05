@@ -15,8 +15,11 @@ import { useEffect } from "react";
 const Playlist = ({ MusicaContext, index }) => {
   const MusicaData = useContext(MusicaContext);
   const { id } = useParams();
+  // const { data, pending, error } = useFetch(
+  //   `http://localhost:8000/playlist/${id}`
+
   const { data, pending, error } = useFetch(
-    `http://localhost:8000/playlist/${id}`
+    `https://musica-api.up.railway.app/playlist/${id}`
   );
   const {
     img,
