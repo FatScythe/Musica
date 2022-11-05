@@ -1,92 +1,48 @@
 import { useParams } from "react-router-dom";
-// import { data } from "../../../data/data";
 import SearchDesktop from "../Searchdesktop";
 import { useContext } from "react";
 
 import icon from "../../../images/collection_icon.png";
 import icon2 from "../../../images/play.png";
 import List from "./List";
-import Player from "../Player";
-
-//API
-import useFetch from "../../../hooks/useFetch";
-import { useEffect } from "react";
 
 const Playlist = ({ MusicaContext, index }) => {
   const MusicaData = useContext(MusicaContext);
   const { id } = useParams();
-  // const { data, pending, error } = useFetch(
-  //   `http://localhost:8000/playlist/${id}`
 
-  const { data, pending, error } = useFetch(
-    `https://musica-api.up.railway.app/playlist/${id}`
-  );
   const {
     img,
     playlist,
     playlistPending,
     playlistError,
-    newreleases,
-    newPending,
-    newError,
-    popular,
-    popularPending,
-    popularError,
-    isPlaying,
-    setIsPlaying,
-    trackList,
-    setTrackList,
-    audioContainer,
-    play_pauseContainer,
-    volumeContainer,
-    muteContainer,
-    seekContainer,
-    updateTimer,
-    seekPosition,
-    coverSrc,
-    setCoverSrc,
-    artist,
-    setArtist,
-    title,
-    setTitle,
-    trackIndex,
-    setTrackIndex,
-    trackVolume,
-    setTrackVolume,
     loadTrack,
-    seekTo,
-    seekUpdate,
-    setVolume,
-    mute_unmute,
-    playpauseTrack,
     playTrack,
-    pauseTrack,
-    nextTrack,
-    prevTrack,
-    shuffle,
-    loop,
   } = MusicaData;
+
+  let data = playlist.filter((datum) => datum.id === id);
 
   // Getting index for each playlist
   let playlistIndex = parseInt(id.substr(9) - 1);
 
   return (
-    <div className='playlist relative'>
-      {pending && <h1 className='text-6xl text-secondary'>Loading...</h1>}
-      {error && <h1 className='text-6xl text-secondary'>Error...</h1>}
-      {data && (
+    <div className='playlist'>
+      {playlistPending && (
+        <h1 className='text-6xl text-secondary'>Loading...</h1>
+      )}
+      {playlistError && <h1 className='text-6xl text-secondary'>Error...</h1>}
+      {playlist && (
         <>
           <SearchDesktop />
           <header>
             <div className='hero-img'>
-              <img src={data.cover} alt={data.title} />
+              <img src={data[0].cover} alt={data[0].title} />
             </div>
 
             <div className='hero-txt'>
-              <h1>{data.title}</h1>
-              <p className='mt-2 text-xss'>{data.info}</p>
+              <h1>{data[0].title}</h1>
+              <p className='mt-2 text-xss'>{data[0].info}</p>
               <p className='font-semibold mb-8'>
-                {data.files.length} songs - duration
+                {data[0].files.length} songs - duration
               </p>
 
               <div className='btn'>
@@ -132,18 +88,14 @@ const Playlist = ({ MusicaContext, index }) => {
               </div>
             </div>
           </header>
+
           <main className='mt-8 mb-32'>
-            {data.files.map((file, index) => {
+            {data[0].files.map((file, index) => {
               const { id, title, cover, duration, artist } = file;
               return (
                 <List
                   loadTrack={loadTrack}
-                  id={id}
                   index={index}
-                  setTrackIndex={setTrackIndex}
-                  trackList={trackList}
-                  setTrackList={setTrackList}
-                  newreleases={newreleases}
                   playTrack={playTrack}
                   key={id}
                   duration={duration}
@@ -151,30 +103,14 @@ const Playlist = ({ MusicaContext, index }) => {
                   title={title}
                   cover={cover}
                   artist={artist}
-                  file={file}
                   playlistIndex={playlistIndex}
                 />
               );
             })}
           </main>
-          <Player
-            playpauseTrack={playpauseTrack}
-            prevTrack={prevTrack}
-            nextTrack={nextTrack}
-            audioContainer={audioContainer}
-            play_pauseContainer={play_pauseContainer}
-            coverSrc={coverSrc}
-            title={title}
-            artist={artist}
-            volumeContainer={volumeContainer}
-            setVolume={setVolume}
-            mute_unmute={mute_unmute}
-            muteContainer={muteContainer}
-            seekContainer={seekContainer}
-            seekTo={seekTo}
-          />
         </>
       )}
+      ;
     </div>
   );
 };

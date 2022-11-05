@@ -27,8 +27,10 @@ ___
 ![Musica Design](./src/images/design.png "Design")
 
 ### Future Feature
-1. Request Data from an API
-2. Play, pause, shuffle, and loop audio data
+1. Request Data from an API(done)
+2. Play, pause, shuffle, and loop audio data (pending)
+3. Search
+4. Like and collections
 ## Available Scripts
 
 In the project directory, you can run:
@@ -43,3 +45,4 @@ You may also see any lint errors in the console.
 
 ### Credits: 
 1. Scythe
+2. [Hemdee JS](https://twitter.com/SanusiMuhyideen "Sanusi Muhydeen") - API

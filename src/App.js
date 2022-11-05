@@ -15,19 +15,16 @@ const App = () => {
     pending: playlistPending,
     error: playlistError,
   } = useFetch("https://musica-api.up.railway.app/playlist");
-  // } = useFetch("http://localhost:8000/playlist");
   const {
     data: newreleases,
     pending: newPending,
     error: newError,
   } = useFetch("https://musica-api.up.railway.app/new");
-  // } = useFetch("http://localhost:8001/new");
   const {
     data: popular,
     pending: popularPending,
     error: popularError,
   } = useFetch("https://musica-api.up.railway.app/popular");
-  // } = useFetch("http://localhost:8002/popular");
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackList, setTrackList] = useState([]);

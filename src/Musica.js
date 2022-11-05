@@ -13,13 +13,47 @@ import Logout from "./components/Logout/Logout";
 import NotFound from "./components/NotFound";
 import Playlist from "./components/Home/Charts/Playlist";
 import RedirectHome from "./components/Redirect";
+import Player from "./components/Home/Player";
 
 const Musica = ({ MusicaContext }) => {
+  const MusicaData = useContext(MusicaContext);
+  const {
+    audioContainer,
+    play_pauseContainer,
+    volumeContainer,
+    muteContainer,
+    seekContainer,
+    coverSrc,
+    artist,
+    title,
+    seekTo,
+    setVolume,
+    mute_unmute,
+    playpauseTrack,
+    nextTrack,
+    prevTrack,
+  } = MusicaData;
   return (
     <div className='App'>
       <Router>
         <div className='md:grid md:grid-cols-12 relative'>
           <Navbar />
+          <Player
+            playpauseTrack={playpauseTrack}
+            prevTrack={prevTrack}
+            nextTrack={nextTrack}
+            audioContainer={audioContainer}
+            play_pauseContainer={play_pauseContainer}
+            coverSrc={coverSrc}
+            title={title}
+            artist={artist}
+            volumeContainer={volumeContainer}
+            setVolume={setVolume}
+            mute_unmute={mute_unmute}
+            muteContainer={muteContainer}
+            seekContainer={seekContainer}
+            seekTo={seekTo}
+          />
           <main className='md:col-span-11 '>
             <Switch>
               <Route exact path='/'>
