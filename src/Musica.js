@@ -13,13 +13,76 @@ import Logout from "./components/Logout/Logout";
 import NotFound from "./components/NotFound";
 import Playlist from "./components/Home/Charts/Playlist";
 import RedirectHome from "./components/Redirect";
+import Player from "./components/Home/Player";
 
 const Musica = ({ MusicaContext }) => {
+  const MusicaData = useContext(MusicaContext);
+  const {
+    img,
+    playlist,
+    playlistPending,
+    playlistError,
+    newreleases,
+    newPending,
+    newError,
+    popular,
+    popularPending,
+    popularError,
+    isPlaying,
+    setIsPlaying,
+    trackList,
+    setTrackList,
+    audioContainer,
+    play_pauseContainer,
+    volumeContainer,
+    muteContainer,
+    seekContainer,
+    updateTimer,
+    seekPosition,
+    coverSrc,
+    setCoverSrc,
+    artist,
+    setArtist,
+    title,
+    setTitle,
+    trackIndex,
+    setTrackIndex,
+    trackVolume,
+    setTrackVolume,
+    loadTrack,
+    seekTo,
+    seekUpdate,
+    setVolume,
+    mute_unmute,
+    playpauseTrack,
+    playTrack,
+    pauseTrack,
+    nextTrack,
+    prevTrack,
+    shuffle,
+    loop,
+  } = MusicaData;
   return (
     <div className='App'>
       <Router>
         <div className='md:grid md:grid-cols-12 relative'>
           <Navbar />
+          <Player
+            playpauseTrack={playpauseTrack}
+            prevTrack={prevTrack}
+            nextTrack={nextTrack}
+            audioContainer={audioContainer}
+            play_pauseContainer={play_pauseContainer}
+            coverSrc={coverSrc}
+            title={title}
+            artist={artist}
+            volumeContainer={volumeContainer}
+            setVolume={setVolume}
+            mute_unmute={mute_unmute}
+            muteContainer={muteContainer}
+            seekContainer={seekContainer}
+            seekTo={seekTo}
+          />
           <main className='md:col-span-11 '>
             <Switch>
               <Route exact path='/'>

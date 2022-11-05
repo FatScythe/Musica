@@ -160,23 +160,6 @@ const Home = ({ MusicaContext }) => {
               })}
           </div>
         </div>
-
-        <Player
-          playpauseTrack={playpauseTrack}
-          prevTrack={prevTrack}
-          nextTrack={nextTrack}
-          audioContainer={audioContainer}
-          play_pauseContainer={play_pauseContainer}
-          coverSrc={coverSrc}
-          title={title}
-          artist={artist}
-          volumeContainer={volumeContainer}
-          setVolume={setVolume}
-          mute_unmute={mute_unmute}
-          muteContainer={muteContainer}
-          seekContainer={seekContainer}
-          seekTo={seekTo}
-        />
       </header>
     </>
   );

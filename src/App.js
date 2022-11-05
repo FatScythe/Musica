@@ -47,6 +47,9 @@ const App = () => {
   const [trackVolume, setTrackVolume] = useState(1);
 
   const loadTrack = (list, index, cover, artist, title) => {
+    audioContainer.current.src = list[index].audio;
+    audioContainer.current.load();
+
     clearInterval(updateTimer);
 
     setTrackList(list);
@@ -54,9 +57,6 @@ const App = () => {
     setCoverSrc(cover);
     setArtist(artist);
     setTitle(title);
-
-    audioContainer.current.src = list[index].audio;
-    audioContainer.current.load();
 
     updateTimer = setInterval(seekUpdate, 1000);
 
