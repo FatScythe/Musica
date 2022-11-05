@@ -1,17 +1,21 @@
-const NewReleases = ({
+const Popular = ({
   loadTrack,
+  id,
   cover,
   title,
   artist,
+  trackList,
+  setTrackList,
   index,
-  newreleases,
+  setTrackIndex,
+  popular,
+  curr_Track,
   playTrack,
 }) => {
   const playThis = () => {
-    loadTrack(newreleases, index, cover, artist, title);
+    loadTrack(popular, index, cover, artist, title);
     playTrack();
   };
-
   return (
     <div className='mb-5 cursor-pointer' onClick={playThis}>
       <div className='card-img'>
@@ -22,4 +26,4 @@ const NewReleases = ({
   );
 };
 
-export default NewReleases;
+export default Popular;

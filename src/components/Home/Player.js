@@ -1,25 +1,44 @@
-import img from "../../images/nowPlayin.png";
-const Player = () => {
+const Player = ({
+  playpauseTrack,
+  prevTrack,
+  nextTrack,
+  coverSrc,
+  title,
+  artist,
+  audioContainer,
+  play_pauseContainer,
+  volumeContainer,
+  setVolume,
+  mute_unmute,
+  muteContainer,
+  seekContainer,
+  seekTo,
+}) => {
   return (
-    <div className='player flex container-xs justify-between md:justify-evenly'>
-      <div className='track-info basis-3/5 md:basis-1/5 flex justify-start gap-x-1 items-center z-30'>
-        <div className='self-end'>
-          <img className='object-cover' src={img} alt='now-playing' />
+    <div className='player'>
+      <audio ref={audioContainer}></audio>
+      <div className='track-info'>
+        <div className='self-center'>
+          <img
+            className='object-cover rounded-xl w-16 h-16'
+            src={coverSrc}
+            alt='now-playing'
+          />
         </div>
 
         <div className=''>
-          <h2 className='font-semibold'>Seasons in</h2>
-          <p className='text-xs text-gray-400'>James</p>
+          <h2 className='font-semibold'>{title}</h2>
+          <p className='text-xs text-gray-400'>{artist}</p>
         </div>
       </div>
 
-      <div className='track-control basis-2/5 md:basis-3/5 flex flex-col justify-around'>
+      <div className='track-control'>
         <div className='self-center'>
           {/* Shuffle */}
-          <button className='shuffle-btn mr-10 hidden md:inline-block'>
+          <button className='shuffle-btn'>
             <svg
               width='16'
-              height='17'
+              height='16'
               viewBox='0 0 16 17'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
@@ -40,7 +59,7 @@ const Player = () => {
           </button>
 
           {/* prev */}
-          <button className='prev-btn mr-10 hidden md:inline-block'>
+          <button className='prev-btn' onClick={prevTrack}>
             <svg
               width='16'
               height='17'
@@ -60,7 +79,11 @@ const Player = () => {
           </button>
 
           {/* Play */}
-          <button className='play-btn bg-secondary p-3 rounded-full mr-10'>
+          <button
+            className='play-btn'
+            ref={play_pauseContainer}
+            onClick={playpauseTrack}
+          >
             <svg
               width='9'
               height='10'
@@ -76,7 +99,7 @@ const Player = () => {
           </button>
 
           {/* next */}
-          <button className='next-btn mr-10'>
+          <button className='next-btn' onClick={nextTrack}>
             <svg
               width='16'
               height='17'
@@ -96,7 +119,7 @@ const Player = () => {
           </button>
 
           {/* loop */}
-          <button className='loop-btn hidden md:inline-block'>
+          <button className='loop-btn'>
             <svg
               width='16'
               height='17'
@@ -121,12 +144,23 @@ const Player = () => {
         </div>
 
         <div className='hidden md:inline-block'>
-          <input className='w-full' type='range' min='0' max='100' />
+          <input
+            className='w-full'
+            onChange={seekTo}
+            ref={seekContainer}
+            type='range'
+            min='0'
+            max='100'
+          />
         </div>
       </div>
 
-      <div className='track-volume hidden md:flex justify-center gap-x-1 items-center basis-0 md:basis-1/5'>
-        <div className='mt-1'>
+      <div className='track-volume'>
+        <div
+          className='mt-1 cursor-pointer mute'
+          ref={muteContainer}
+          onClick={mute_unmute}
+        >
           <svg
             width='18'
             height='18'
@@ -149,7 +183,14 @@ const Player = () => {
           </svg>
         </div>
         <div>
-          <input className='' type='range' min='0' max='100' />
+          <input
+            ref={volumeContainer}
+            onChange={setVolume}
+            className=''
+            type='range'
+            min='0'
+            max='100'
+          />
         </div>
       </div>
     </div>

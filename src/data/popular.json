@@ -1,0 +1,13 @@
+{
+    "popular": [
+        {"id":"popular-1","artist":"Asake","duration":"2:19","title":"Terminator","cover":"https://musica-api.up.railway.app/cover/cover_11.jpeg","audio":"https://musica-api.up.railway.app/audio/audio_11.mp3"},
+        {"id":"popular-2","artist":"Magix ft Ayra Starr","duration":"2:26","title":"Love Don't Cost A Dime","cover":"https://musica-api.up.railway.app/cover/cover_12.jpeg","audio":"https://musica-api.up.railway.app/audio/audio_12.mp3"},
+        {"id":"popular-3","artist":"Burna Boy","duration":"2:52","title":"Last Last","cover":"https://musica-api.up.railway.app/cover/cover_13.jpg","audio":"https://musica-api.up.railway.app/audio/audio_13.mp3"},
+        {"id":"popular-4","artist":"Kizz Daniel ft Tekno","duration":"2:59","title":"Buga","cover":"https://musica-api.up.railway.app/cover/cover_14.jpeg","audio":"https://musica-api.up.railway.app/audio/audio_14.mp3"},
+        {"id":"popular-5","artist":"Steven ft Portable & TI Blaze","duration":"3:22","title":"Ali Remix","cover":"https://musica-api.up.railway.app/cover/cover_15.png","audio":"https://musica-api.up.railway.app/audio/audio_15.mp3"},
+        {"id":"popular-6","artist":"Asake ft Burna Boy","duration":"3:30","title":"Sungba Remix","cover":"https://musica-api.up.railway.app/cover/cover_16.jpeg","audio":"https://musica-api.up.railway.app/audio/audio_16.mp3"},
+        {"id":"popular-7","artist":"Fireboy","duration":"3:27","title":"Playboy","cover":"https://musica-api.up.railway.app/cover/cover_17.jpeg","audio":"https://musica-api.up.railway.app/audio/audio_17.mp3"},
+        {"id":"popular-8","artist":"BNXN ft Wande Coal","duration":"3:33","title":"Kenkele","cover":"https://musica-api.up.railway.app/cover/cover_18.png","audio":"https://musica-api.up.railway.app/audio/audio_18.mp3"},
+        {"id":"popular-9","artist":"Asake","duration":"2:33","title":"PBUY","cover":"https://musica-api.up.railway.app/cover/cover_19.png","audio":"https://musica-api.up.railway.app/audio/audio_19.mp3"},
+        {"id":"popular-10","artist":"Zinoleesky","duration":"2:05","title":"Loving You","cover":"https://musica-api.up.railway.app/cover/cover_20.jpg","audio":"https://musica-api.up.railway.app/audio/audio_20.mp3"}]
+}
