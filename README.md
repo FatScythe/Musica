@@ -46,4 +46,4 @@ You may also see any lint errors in the console.
 
 ### Credits: 
 1. Scythe
-2. [Hemdee JS](https://twitter.com/SanusiMuhyideen "Sanusi Muhiydeen")
+2. [Hemdee JS](https://twitter.com/SanusiMuhyideen "Sanusi Muhiydeen") - API
