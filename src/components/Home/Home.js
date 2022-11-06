@@ -1,6 +1,5 @@
-import { useRef, useState, useContext } from "react";
+import { useContext } from "react";
 
-import img from "../../images/nowPlayin.png";
 //Loading_Error Components
 import TCloader from "../Loaders/TCloader";
 import NPloader from "../Loaders/NPloader";
@@ -12,18 +11,12 @@ import CuratedPlaylist from "./Curated";
 import TopCharts from "./Topcharts";
 import NewReleases from "./New";
 import Popular from "./Popular";
-import Player from "./Player";
 import { Link } from "react-router-dom";
-
-//API
-import useFetch from "../../hooks/useFetch";
 
 const Home = ({ MusicaContext }) => {
   const MusicaData = useContext(MusicaContext);
-  // console.log(MusicaData);
 
   const {
-    img,
     playlist,
     playlistPending,
     playlistError,
@@ -33,39 +26,8 @@ const Home = ({ MusicaContext }) => {
     popular,
     popularPending,
     popularError,
-    isPlaying,
-    setIsPlaying,
-    trackList,
-    setTrackList,
-    audioContainer,
-    play_pauseContainer,
-    volumeContainer,
-    muteContainer,
-    seekContainer,
-    updateTimer,
-    seekPosition,
-    coverSrc,
-    setCoverSrc,
-    artist,
-    setArtist,
-    title,
-    setTitle,
-    trackIndex,
-    setTrackIndex,
-    trackVolume,
-    setTrackVolume,
     loadTrack,
-    seekTo,
-    seekUpdate,
-    setVolume,
-    mute_unmute,
-    playpauseTrack,
     playTrack,
-    pauseTrack,
-    nextTrack,
-    prevTrack,
-    shuffle,
-    loop,
   } = MusicaData;
 
   return (
@@ -84,8 +46,7 @@ const Home = ({ MusicaContext }) => {
 
               {playlist &&
                 playlist.map((chart) => {
-                  const { id, title, artist, duration, info, cover, files } =
-                    chart;
+                  const { id, title, duration, cover, files } = chart;
                   return (
                     <>
                       <Link key={id} to={`/playlist/${id}`}>
@@ -118,9 +79,6 @@ const Home = ({ MusicaContext }) => {
                     loadTrack={loadTrack}
                     id={id}
                     index={index}
-                    setTrackIndex={setTrackIndex}
-                    trackList={trackList}
-                    setTrackList={setTrackList}
                     newreleases={newreleases}
                     playTrack={playTrack}
                     key={id}
@@ -140,15 +98,11 @@ const Home = ({ MusicaContext }) => {
             {popularError && <Error />}
             {popular &&
               popular.map((pop, index) => {
-                const { id, title, cover, audio, artist, duration } = pop;
+                const { id, title, cover, artist } = pop;
                 return (
                   <Popular
                     loadTrack={loadTrack}
-                    id={id}
                     index={index}
-                    setTrackIndex={setTrackIndex}
-                    trackList={trackList}
-                    setTrackList={setTrackList}
                     popular={popular}
                     playTrack={playTrack}
                     key={id}

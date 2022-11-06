@@ -6,54 +6,20 @@ import icon from "../../../images/collection_icon.png";
 import icon2 from "../../../images/play.png";
 import List from "./List";
 
-const Playlist = ({ MusicaContext, index }) => {
+const Playlist = ({ MusicaContext }) => {
   const MusicaData = useContext(MusicaContext);
   const { id } = useParams();
 
   const {
-    img,
     playlist,
     playlistPending,
     playlistError,
     newreleases,
-    newPending,
-    newError,
-    popular,
-    popularPending,
-    popularError,
-    isPlaying,
-    setIsPlaying,
     trackList,
     setTrackList,
-    audioContainer,
-    play_pauseContainer,
-    volumeContainer,
-    muteContainer,
-    seekContainer,
-    updateTimer,
-    seekPosition,
-    coverSrc,
-    setCoverSrc,
-    artist,
-    setArtist,
-    title,
-    setTitle,
-    trackIndex,
     setTrackIndex,
-    trackVolume,
-    setTrackVolume,
     loadTrack,
-    seekTo,
-    seekUpdate,
-    setVolume,
-    mute_unmute,
-    playpauseTrack,
     playTrack,
-    pauseTrack,
-    nextTrack,
-    prevTrack,
-    shuffle,
-    loop,
   } = MusicaData;
 
   let data = playlist.filter((datum) => datum.id === id);
@@ -132,12 +98,7 @@ const Playlist = ({ MusicaContext, index }) => {
               return (
                 <List
                   loadTrack={loadTrack}
-                  id={id}
                   index={index}
-                  setTrackIndex={setTrackIndex}
-                  trackList={trackList}
-                  setTrackList={setTrackList}
-                  newreleases={newreleases}
                   playTrack={playTrack}
                   key={id}
                   duration={duration}
@@ -145,7 +106,6 @@ const Playlist = ({ MusicaContext, index }) => {
                   title={title}
                   cover={cover}
                   artist={artist}
-                  file={file}
                   playlistIndex={playlistIndex}
                 />
               );

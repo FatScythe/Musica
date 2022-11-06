@@ -1,15 +1,10 @@
 const Popular = ({
   loadTrack,
-  id,
   cover,
   title,
   artist,
-  trackList,
-  setTrackList,
   index,
-  setTrackIndex,
   popular,
-  curr_Track,
   playTrack,
 }) => {
   const playThis = () => {
