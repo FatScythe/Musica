@@ -43,6 +43,33 @@ const App = () => {
   const [title, setTitle] = useState("Seasons In");
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackVolume, setTrackVolume] = useState(1);
+  const [inputText, setInputText] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [searchEmpty, setSearchEmpty] = useState(true);
+  const [searchModal, setSearchModal] = useState(false);
+
+  const handleInputText = (e) => {
+    e.preventDefault();
+    setInputText(e.target.value.toLowerCase().trim());
+    const results = [...popular, ...newreleases].filter((result) => {
+      return (
+        result.artist.toLowerCase().trim().includes(inputText) ||
+        result.title.toLowerCase().trim().includes(inputText)
+      );
+    });
+    // if (searchResult !== []) {
+    //   setSearchEmpty(false);
+    // } else setSearchEmpty(true);
+
+    setSearchResult(results);
+    setSearchModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setSearchResult([]);
+    setSearchModal(false);
+    setInputText("");
+  };
 
   const loadTrack = (list, index, cover, artist, title) => {
     audioContainer.current.src = list[index].audio;
@@ -134,8 +161,6 @@ const App = () => {
                   clipRule='evenodd'
                 />
               </svg>`;
-
-    console.log("play");
   };
 
   const pauseTrack = () => {
@@ -191,7 +216,6 @@ const App = () => {
 
   const mute_unmute = () => {
     if (muteContainer.current.classList.contains("mute")) {
-      console.log("muted");
       audioContainer.current.muted = true;
       muteContainer.current.innerHTML = `<svg
             xmlns='http://www.w3.org/2000/svg'
@@ -211,7 +235,6 @@ const App = () => {
           </svg>`;
       muteContainer.current.classList.remove("mute");
     } else {
-      console.log("unmuted");
       audioContainer.current.muted = false;
       muteContainer.current.innerHTML = `<svg
             width='18'
@@ -286,6 +309,12 @@ const App = () => {
         prevTrack,
         shuffle,
         loop,
+        inputText,
+        setInputText,
+        handleInputText,
+        searchResult,
+        searchModal,
+        handleCloseModal,
       }}
     >
       <Musica MusicaContext={MusicaContext} />

@@ -6,7 +6,6 @@ import NPloader from "../Loaders/NPloader";
 import Error from "../Loaders/Error";
 
 // Components
-import SearchDesktop from "./Searchdesktop";
 import CuratedPlaylist from "./Curated";
 import TopCharts from "./Topcharts";
 import NewReleases from "./New";
@@ -33,8 +32,6 @@ const Home = ({ MusicaContext }) => {
   return (
     <>
       <header className='px-5'>
-        <SearchDesktop />
-
         <div className='grid md:grid-cols-12 gap-5 h-full'>
           <CuratedPlaylist />
 

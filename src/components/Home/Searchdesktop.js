@@ -1,6 +1,6 @@
-const SearchDesktop = () => {
+const SearchDesktop = ({ inputText, setInputText, handleInputText }) => {
   return (
-    <div className='mt-8 mb-4 search hidden md:block'>
+    <form className='mt-8 mb-4 search hidden md:block ml-4 text-light'>
       <svg
         className='inline mr-1'
         width='22'
@@ -27,11 +27,13 @@ const SearchDesktop = () => {
         />
       </svg>
       <input
+        onChange={handleInputText}
+        value={inputText}
         type='text'
         placeholder='Search'
         className='border border-transparent outline-none caret-secondary focus:border-b-primary bg-transparent w-3/4 placeholder:text-xs placeholder:tracking-wide placeholder:font-bold'
       ></input>
-    </div>
+    </form>
   );
 };
 

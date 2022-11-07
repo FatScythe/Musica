@@ -1,19 +1,24 @@
-const Player = ({
-  playpauseTrack,
-  prevTrack,
-  nextTrack,
-  coverSrc,
-  title,
-  artist,
-  audioContainer,
-  play_pauseContainer,
-  volumeContainer,
-  setVolume,
-  mute_unmute,
-  muteContainer,
-  seekContainer,
-  seekTo,
-}) => {
+import { useContext } from "react";
+const Player = ({ MusicaContext }) => {
+  const MusicaData = useContext(MusicaContext);
+
+  const {
+    playpauseTrack,
+    prevTrack,
+    nextTrack,
+    coverSrc,
+    title,
+    artist,
+    audioContainer,
+    play_pauseContainer,
+    volumeContainer,
+    setVolume,
+    mute_unmute,
+    muteContainer,
+    seekContainer,
+    seekTo,
+  } = MusicaData;
+
   return (
     <div className='player'>
       <audio ref={audioContainer}></audio>

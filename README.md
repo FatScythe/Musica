@@ -29,7 +29,7 @@ ___
 ### Future Feature
 1. Request Data from an API (done)
 2. Play, pause, shuffle, and loop audio data (pending)
-3. Search (pending)
+3. Search (done)
 4. Like and collections
 
 ## Available Scripts

@@ -1,4 +1,4 @@
-import R4 from "../../images/R4.png";
+import R4 from "../images/R4.png";
 const MyCollection = () => {
   return (
     <div className='my-collection'>

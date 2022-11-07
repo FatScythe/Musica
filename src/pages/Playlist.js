@@ -1,26 +1,16 @@
 import { useParams } from "react-router-dom";
-import SearchDesktop from "../Searchdesktop";
 import { useContext } from "react";
 
-import icon from "../../../images/collection_icon.png";
-import icon2 from "../../../images/play.png";
+import icon from "../images/collection_icon.png";
+import icon2 from "../images/play.png";
 import List from "./List";
 
 const Playlist = ({ MusicaContext }) => {
   const MusicaData = useContext(MusicaContext);
   const { id } = useParams();
 
-  const {
-    playlist,
-    playlistPending,
-    playlistError,
-    newreleases,
-    trackList,
-    setTrackList,
-    setTrackIndex,
-    loadTrack,
-    playTrack,
-  } = MusicaData;
+  const { playlist, playlistPending, playlistError, loadTrack, playTrack } =
+    MusicaData;
 
   let data = playlist.filter((datum) => datum.id === id);
 
@@ -35,7 +25,6 @@ const Playlist = ({ MusicaContext }) => {
       {playlistError && <h1 className='text-6xl text-secondary'>Error...</h1>}
       {playlist && (
         <>
-          <SearchDesktop />
           <header>
             <div className='hero-img'>
               <img src={data[0].cover} alt={data[0].title} />

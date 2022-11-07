@@ -1,6 +1,11 @@
-const Search = ({ handleSearchMobile, searchInput }) => {
+const Search = ({
+  handleSearchMobile,
+  searchInput,
+  inputText,
+  handleInputText,
+}) => {
   return (
-    <div className='search md:hidden cursor-pointer'>
+    <form className='search md:hidden cursor-pointer'>
       <svg
         onClick={handleSearchMobile}
         className='inline mr-1'
@@ -30,10 +35,12 @@ const Search = ({ handleSearchMobile, searchInput }) => {
       <input
         type='text'
         ref={searchInput}
+        onChange={handleInputText}
+        value={inputText}
         placeholder='Search'
         className='w-0 h-0 p-0'
       ></input>
-    </div>
+    </form>
   );
 };
 

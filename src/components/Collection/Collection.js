@@ -1,15 +1,13 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavCollection from "./Navcollection";
-import SearchDesktop from "../Home/Searchdesktop";
-import MyCollection from "./MyCollection";
-import Likes from "./Likes";
+import MyCollection from "../../pages/MyCollection";
+import Likes from "../../pages/Likes";
 
 const Collection = () => {
   return (
     <Router>
       <div className='collection'>
         <div>
-          <SearchDesktop />
           <NavCollection />
         </div>
         <main>

@@ -1,9 +1,13 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 
 import Searchmobile from "./Searchmobile";
 import Navlinks from "./Navlinks";
 
-const Navbar = () => {
+const Navbar = ({ MusicaContext }) => {
+  const MusicaData = useContext(MusicaContext);
+
+  const { inputText, setInputText, handleInputText } = MusicaData;
+
   const [navIsOpen, setnavIsOpen] = useState(false);
   const searchInput = useRef(null);
 
@@ -84,6 +88,9 @@ const Navbar = () => {
           <Searchmobile
             handleSearchMobile={handleSearchMobile}
             searchInput={searchInput}
+            inputText={inputText}
+            setInputText={setInputText}
+            handleInputText={handleInputText}
             className='md:hidden'
           />
         </div>
