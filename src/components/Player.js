@@ -1,7 +1,6 @@
-import { useContext } from "react";
-const Player = ({ MusicaContext }) => {
-  const MusicaData = useContext(MusicaContext);
-
+// Context
+import { useGlobalContext } from "../context/MusicaContext";
+const Player = () => {
   const {
     playpauseTrack,
     prevTrack,
@@ -17,7 +16,11 @@ const Player = ({ MusicaContext }) => {
     muteContainer,
     seekContainer,
     seekTo,
-  } = MusicaData;
+    shuffleContainer,
+    loopContainer,
+    handleShuffle,
+    handleLoop,
+  } = useGlobalContext();
 
   return (
     <div className='player'>
@@ -40,7 +43,11 @@ const Player = ({ MusicaContext }) => {
       <div className='track-control'>
         <div className='self-center'>
           {/* Shuffle */}
-          <button className='shuffle-btn'>
+          <button
+            className='shuffle-btn'
+            ref={shuffleContainer}
+            onClick={handleShuffle}
+          >
             <svg
               width='16'
               height='16'
@@ -124,7 +131,7 @@ const Player = ({ MusicaContext }) => {
           </button>
 
           {/* loop */}
-          <button className='loop-btn'>
+          <button className='loop-btn' ref={loopContainer} onClick={handleLoop}>
             <svg
               width='16'
               height='17'

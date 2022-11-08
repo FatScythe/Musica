@@ -14,7 +14,11 @@ const TopCharts = ({
       <div className='flex justify-between min-w-xs md:min-w-full items-center md:ml-2 bg-dark3 px-4 py-2 rounded-lg'>
         <div className='flex flex-col md:flex-row justify-between gap-2 items-center'>
           <div className='self-start'>
-            <img src={cover} className='object-cover w-20 h-20' alt={title} />
+            <img
+              src={cover}
+              className='object-cover w-20 h-20 rounded-md'
+              alt={title}
+            />
           </div>
           <div>
             <h2 className='text-normal'>{title}</h2>

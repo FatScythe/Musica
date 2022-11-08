@@ -5,7 +5,6 @@
 
 ::-webkit-scrollbar {
     @apply w-1 h-1;
-
 }
 .App {
     @apply bg-dark h-screen relative overflow-y-scroll overflow-x-hidden font-sans;
@@ -66,7 +65,7 @@ header .card .hero-img {
     @apply hidden basis-2/4 md:block;
 }
 header .card .hero-img img {
-    @apply  h-full w-full;
+    @apply h-full w-full;
 }
 header .card span svg {
     @apply inline mx-3;
@@ -133,7 +132,7 @@ header .popular {
     @apply basis-full md:basis-2/6 mr-auto ml-auto;
 }
 .playlist header .hero-img img {
-    @apply w-full h-50vh md:h-40vh md:object-contain;
+    @apply w-full h-50vh md:h-40vh md:object-contain rounded-2xl;
 }
 .playlist header .hero-txt {
     @apply basis-full md:basis-2/3 mx-3 md:mx-12 self-end;
@@ -191,7 +190,7 @@ header .popular {
     @apply basis-2/5 md:basis-3/5 flex flex-col justify-around;
 }
 .player .track-control .shuffle-btn {
-    @apply mr-10 hidden md:inline-block;
+    @apply mr-10 hidden md:inline-block p-3 rounded-full;
 }
 .player .track-control .prev-btn {
     @apply mr-6 md:mr-10 inline-block;
@@ -203,7 +202,7 @@ header .popular {
     @apply md:mr-10;
  }
 .player .track-control .loop-btn {
-    @apply hidden md:inline-block;
+    @apply hidden md:inline-block p-3 rounded-full;
  }
  .player .track-volume {
     @apply hidden md:flex justify-center gap-x-1 items-center basis-0 md:basis-1/5;

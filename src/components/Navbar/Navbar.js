@@ -1,12 +1,12 @@
-import { useRef, useState, useContext } from "react";
+import { useRef, useState } from "react";
 
 import Searchmobile from "./Searchmobile";
 import Navlinks from "./Navlinks";
 
-const Navbar = ({ MusicaContext }) => {
-  const MusicaData = useContext(MusicaContext);
+import { useGlobalContext } from "../../context/MusicaContext";
 
-  const { inputText, setInputText, handleInputText } = MusicaData;
+const Navbar = () => {
+  const { inputText, setInputText, handleInputText } = useGlobalContext();
 
   const [navIsOpen, setnavIsOpen] = useState(false);
   const searchInput = useRef(null);

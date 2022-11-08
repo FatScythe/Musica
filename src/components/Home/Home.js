@@ -1,9 +1,5 @@
-import { useContext } from "react";
-
 //Loading_Error Components
-import TCloader from "../Loaders/TCloader";
-import NPloader from "../Loaders/NPloader";
-import Error from "../Loaders/Error";
+import { Error, NPloader, TCloader } from "../Loaders/Loaders";
 
 // Components
 import CuratedPlaylist from "./Curated";
@@ -12,9 +8,10 @@ import NewReleases from "./New";
 import Popular from "./Popular";
 import { Link } from "react-router-dom";
 
-const Home = ({ MusicaContext }) => {
-  const MusicaData = useContext(MusicaContext);
+//Context
+import { useGlobalContext } from "../../context/MusicaContext";
 
+const Home = () => {
   const {
     playlist,
     playlistPending,
@@ -27,7 +24,7 @@ const Home = ({ MusicaContext }) => {
     popularError,
     loadTrack,
     playTrack,
-  } = MusicaData;
+  } = useGlobalContext();
 
   return (
     <>
@@ -70,7 +67,7 @@ const Home = ({ MusicaContext }) => {
             {newError && <Error />}
             {newreleases &&
               newreleases.map((newR, index) => {
-                const { id, title, cover, audio, artist, duration } = newR;
+                const { id, title, cover, artist } = newR;
                 return (
                   <NewReleases
                     loadTrack={loadTrack}

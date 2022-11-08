@@ -1,16 +1,15 @@
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useGlobalContext } from "../context/MusicaContext";
 
 import icon from "../images/collection_icon.png";
 import icon2 from "../images/play.png";
 import List from "./List";
 
-const Playlist = ({ MusicaContext }) => {
-  const MusicaData = useContext(MusicaContext);
+const Playlist = () => {
   const { id } = useParams();
 
   const { playlist, playlistPending, playlistError, loadTrack, playTrack } =
-    MusicaData;
+    useGlobalContext();
 
   let data = playlist.filter((datum) => datum.id === id);
 

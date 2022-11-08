@@ -28,9 +28,9 @@ ___
 
 ### Future Feature
 1. Request Data from an API (done)
-2. Play, pause, shuffle, and loop audio data (pending)
+2. Play, pause, shuffle, and loop audio data (done)
 3. Search (done)
-4. Like and collections
+4. Like and collections (maybe)
 
 ## Available Scripts
 

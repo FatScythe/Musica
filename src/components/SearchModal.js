@@ -35,6 +35,7 @@ const SearchModal = ({
             playTrack();
             handleCloseModal();
           };
+          console.log(searchResult);
           return (
             <li key={id} className='cursor-pointer' onClick={playThis}>
               <ModalCard
