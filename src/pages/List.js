@@ -42,7 +42,7 @@ const List = ({
         </div>
 
         <div className='flex flex-col items-start basis-3/4 md:basis-4/5 md:items-center md:flex-row md:justify-around'>
-          <p className='w-1/4'>
+          <p className='md:w-1/4'>
             {title}- {artist}
           </p>
           <p>Single</p>
