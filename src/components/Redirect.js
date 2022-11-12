@@ -6,8 +6,8 @@ const Redirect = () => {
   useEffect(() => {
     setTimeout(() => {
       history.push("/home");
-    }, 2000);
-  }, []);
+    }, 3000);
+  }, [history]);
 
   return (
     <div className='bg-dark text-center grid place-items-center absolute top-0 left-0 right-0 h-screen z-50'>

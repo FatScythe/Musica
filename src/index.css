@@ -21,8 +21,12 @@ nav .nav-links {
 nav ul li {
     @apply flex gap-x-6 ml-10 mb-8 mt-12 md:mt-6 md:gap-x-0 md:ml-0 md:mb-2;
 }
+nav ul li:hover svg path {
+    @apply fill-white;
+    fill-opacity: 1;
+}
 .active svg path {
-    @apply bg-secondary fill-secondary;
+    @apply fill-secondary;
     fill-opacity: 1;
 }
 nav ul {

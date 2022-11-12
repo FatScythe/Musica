@@ -28,6 +28,12 @@ const SearchModal = ({
         </svg>
       </div>
       <ul className='flex justify-center flex-wrap gap-5'>
+        {searchResult.length === 0 && (
+          <div className='text-center'>
+            <h1 className='text-xl text-red-500'>No song found</h1>
+            <p>Search for artist or song title</p>
+          </div>
+        )}
         {searchResult.map((result, index) => {
           const { artist, title, id, cover, duration } = result;
           const playThis = () => {
@@ -35,7 +41,6 @@ const SearchModal = ({
             playTrack();
             handleCloseModal();
           };
-          console.log(searchResult);
           return (
             <li key={id} className='cursor-pointer' onClick={playThis}>
               <ModalCard

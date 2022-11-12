@@ -42,8 +42,8 @@ const Home = () => {
                 playlist.map((chart) => {
                   const { id, title, duration, cover, files } = chart;
                   return (
-                    <>
-                      <Link key={id} to={`/playlist/${id}`}>
+                    <div key={id}>
+                      <Link to={`/playlist/${id}`}>
                         <TopCharts
                           title={title}
                           artist1={files[0].artist}
@@ -53,7 +53,7 @@ const Home = () => {
                           files={files}
                         />
                       </Link>
-                    </>
+                    </div>
                   );
                 })}
             </div>

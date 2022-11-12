@@ -52,10 +52,10 @@ const App = () => {
               <Route exact path='/'>
                 <RedirectHome />
               </Route>
-              <Route path='/home'>
+              <Route exact path='/home'>
                 <Home />
               </Route>
-              <Route path='/collection'>
+              <Route exact path='/collection'>
                 <Collection />
               </Route>
               <Route path='/videos'>
